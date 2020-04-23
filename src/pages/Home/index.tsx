@@ -1,18 +1,31 @@
 import { createElement } from 'rax';
 import View from 'rax-view';
-import Text from 'rax-text';
+import Image from 'rax-image';
 
+
+import '../../public/css/common.css';
 import './index.css';
 
-import Logo from '../../components/Logo';
+import Wheel from '../../components/wheel';
+import Slogn from '../../components/Slogn';
+
+const titleBg = {
+  uri: '/public/img/draw_title.png'
+}
+
+const bottomBg = {
+  uri: '/public/img/draw_bg_bottom.png'
+}
 
 export default function Home() {
   return (
     <View className="home">
-      <Logo uri="//gw.alicdn.com/tfs/TB1MRC_cvb2gK0jSZK9XXaEgFXa-1701-1535.png" />
-      <Text className="title">Welcome to Your Rax App</Text>
-      <Text className="info">More information about Rax</Text>
-      <Text className="info">Visit https://rax.js.org</Text>
+      <Image className="lucky-title" resizeMode="cover" source={titleBg} />
+      <View className="lucky-main">
+        <Slogn></Slogn>
+        <Wheel></Wheel>
+      </View>
+      <Image className="lucky-bottom-bg" source={bottomBg}></Image>
     </View>
   );
 }
