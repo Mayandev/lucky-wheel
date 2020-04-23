@@ -43,9 +43,12 @@ const formatPrizeList = (list: any) => {
   return list;
 }
 
+
 export default () => {
 
-  const [prizeList, setPrizeList] = useState([])
+  const [prizeList, setPrizeList] = useState([]);
+  const [isRotating, setIsRotating] = useState(false);
+  const [rotateAngle, setRotateAngle] = useState(0);
 
   useEffect(() => {
     getPrizeList().then((res: any) => {
@@ -55,10 +58,55 @@ export default () => {
     })
   }, [])
 
+  const wheelBgStyle = {
+    transition: `transform ${config.duration}ms ${config.mode}`,
+    transform: `rotate(${rotateAngle}deg)`,
+  }
+
+  // 开始转动转盘
+  const rotateWheel = (e) => {
+    console.log(e);
+    const index = random(prizeList.length - 1);
+    // 开始转动
+    rotating();
+  }
+
+  // 转动转盘
+  const rotating = () => {
+    console.log('bbb');
+    
+    // 如果已经在转动，则停止
+    if (isRotating) return;
+    setIsRotating(true);
+
+    // 旋转角度
+    const angle = 
+      // 旋转角度
+      rotateAngle + 
+      // 旋转圈数
+      config.circle * CIRCLE_ANGLE;
+      // 奖项的角度
+    console.log(angle);
+    
+    setRotateAngle(angle);
+
+    // 重置按钮
+    setTimeout(() => {
+      setIsRotating(false);
+    }, config.duration);
+  }
+
+  const random = (max: number, min = 0) => {
+    return Math.floor( Math.random() * (max - min + 1) + min);
+  }
+
   return (
     <View className="wheel-main">
-      <Image source={pointer} className="wheel-pointer" />
-      <View className="wheel-bg">
+      <Image 
+        onClick={() => {rotateWheel('a')}} 
+        source={pointer} 
+        className="wheel-pointer" />
+      <View className="wheel-bg" style={wheelBgStyle}>
         <Image source={wheelBg} resizeMode="contain" className="wheel-img" />
         <View className="prize-list">
           {

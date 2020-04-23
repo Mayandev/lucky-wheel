@@ -6,8 +6,9 @@ import Image from 'rax-image';
 import '../../public/css/common.css';
 import './index.css';
 
-import Wheel from '../../components/wheel';
+import Wheel from '../../components/Wheel';
 import Slogn from '../../components/Slogn';
+import Button from '../../components/Button';
 
 const titleBg = {
   uri: '/public/img/draw_title.png'
@@ -24,6 +25,7 @@ export default function Home() {
       <View className="lucky-main">
         <Slogn></Slogn>
         <Wheel></Wheel>
+        <Button text={'马上抽奖'} style={'ongoing'}></Button>
       </View>
       <Image className="lucky-bottom-bg" source={bottomBg}></Image>
     </View>

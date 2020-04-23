@@ -6,7 +6,7 @@
 
 .wheel-bg {
   width: 654rpx;
-  height: 655rpx;
+  height: 654rpx;
   z-index: 1;
 }
 
@@ -36,7 +36,7 @@
 
 .prize-list .prize-item {
   position: absolute;
-  height: 326rpx;
+  height: 327rpx;
   width: 192rpx;
   top: 0;
   left: 50%;
