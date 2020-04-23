@@ -6,5 +6,6 @@
         "targets": ["web", "weex"]
       }
     ]
-  ]
+  ],
+  "inlineStyle": false
 }
