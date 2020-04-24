@@ -1,4 +1,4 @@
-import { createElement } from 'rax';
+import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Image from 'rax-image';
 
@@ -7,7 +7,6 @@ import '../../public/css/common.css';
 import './index.css';
 
 import Slogn from '../../components/Slogn';
-import Button from '../../components/Button';
 import Wheel from '../../components/Wheel';
 
 const titleBg = {
@@ -25,7 +24,6 @@ export default function Home() {
       <View className="lucky-main">
         <Slogn></Slogn>
         <Wheel></Wheel>
-        <Button text={'马上抽奖'} style={'ongoing'}></Button>
       </View>
       <Image className="lucky-bottom-bg" source={bottomBg}></Image>
     </View>

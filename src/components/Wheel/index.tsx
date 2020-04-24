@@ -2,6 +2,7 @@ import { createElement, useState, useEffect } from 'rax';
 import View from 'rax-view';
 import Image from 'rax-image';
 
+import LuckyButton from './LuckyButton'
 import { getPrizeList } from '../../api/prizeList';
 import './index.css';
 
@@ -22,10 +23,9 @@ const config = {
   // 旋转效果
   mode: 'ease-in-out'
 }
+const angleList:Array<number>= []
 
 const formatPrizeList = (list: any) => {
-  // 记录每个奖品的角度
-  const angle = [];
   // 奖品个数
   const num = list.length;
   // 每个奖品夹角
@@ -40,10 +40,10 @@ const formatPrizeList = (list: any) => {
     item.style = {
       transform: `rotate(${angle}deg)`
     }
+    angleList.push(i * average)
   })
   return list;
 }
-
 
 export default () => {
 
@@ -65,17 +65,9 @@ export default () => {
   }
 
   // 开始转动转盘
-  const rotateWheel = (e) => {
-    console.log(e);
+  const rotateWheel = () => {
     const index = random(prizeList.length - 1);
     // 开始转动
-    rotating();
-  }
-
-  // 转动转盘
-  const rotating = () => {
-    console.log('bbb');
-    
     // 如果已经在转动，则停止
     if (isRotating) return;
     setIsRotating(true);
@@ -85,13 +77,14 @@ export default () => {
       // 旋转角度
       rotateAngle + 
       // 旋转圈数
-      config.circle * CIRCLE_ANGLE;
-      // 奖项的角度
+      config.circle * CIRCLE_ANGLE+
+      // 到当前奖项的角度
+      angleList[index]-(rotateAngle % CIRCLE_ANGLE);
     console.log(angle);
     
+    // 重新设置角度，启动动画
     setRotateAngle(angle);
-
-    // 重置按钮
+    // 重置按钮, duration 秒后可重新按动按钮
     setTimeout(() => {
       setIsRotating(false);
     }, config.duration);
@@ -103,8 +96,7 @@ export default () => {
 
   return (
     <View className="wheel-main">
-      <Image 
-        onClick={() => {rotateWheel('a')}} 
+      <Image
         source={pointer} 
         className="wheel-pointer" />
       <View className="wheel-bg" style={wheelBgStyle}>
@@ -124,6 +116,7 @@ export default () => {
           }
         </View>
       </View>
+      <LuckyButton onClick={rotateWheel}></LuckyButton>
     </View>
   );
 };
