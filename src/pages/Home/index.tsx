@@ -6,7 +6,7 @@ import Image from 'rax-image';
 import '../../public/css/common.css';
 import './index.css';
 
-import Wheel from '../../components/Wheel';
+// import Wheel from '../../components/Wheel';
 import Slogn from '../../components/Slogn';
 import Button from '../../components/Button';
 
@@ -24,7 +24,7 @@ export default function Home() {
       <Image className="lucky-title" resizeMode="cover" source={titleBg} />
       <View className="lucky-main">
         <Slogn></Slogn>
-        <Wheel></Wheel>
+        {/* <Wheel></Wheel> */}
         <Button text={'马上抽奖'} style={'ongoing'}></Button>
       </View>
       <Image className="lucky-bottom-bg" source={bottomBg}></Image>
