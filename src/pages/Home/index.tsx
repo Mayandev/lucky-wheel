@@ -6,9 +6,9 @@ import Image from 'rax-image';
 import '../../public/css/common.css';
 import './index.css';
 
-// import Wheel from '../../components/Wheel';
 import Slogn from '../../components/Slogn';
 import Button from '../../components/Button';
+// import Wheel from '../../components/Wheel';
 
 const titleBg = {
   uri: '/public/img/draw_title.png'
