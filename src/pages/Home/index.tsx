@@ -8,7 +8,7 @@ import './index.css';
 
 import Slogn from '../../components/Slogn';
 import Button from '../../components/Button';
-// import Wheel from '../../components/Wheel';
+import Wheel from '../../components/Wheel';
 
 const titleBg = {
   uri: '/public/img/draw_title.png'
@@ -24,7 +24,7 @@ export default function Home() {
       <Image className="lucky-title" resizeMode="cover" source={titleBg} />
       <View className="lucky-main">
         <Slogn></Slogn>
-        {/* <Wheel></Wheel> */}
+        <Wheel></Wheel>
         <Button text={'马上抽奖'} style={'ongoing'}></Button>
       </View>
       <Image className="lucky-bottom-bg" source={bottomBg}></Image>
