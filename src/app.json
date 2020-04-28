@@ -3,6 +3,10 @@
     {
       "path": "/",
       "source": "pages/Home/index"
+    },
+    {
+      "path": "/prizeList",
+      "source": "pages/PrizeList/index"
     }
   ],
   "window": {

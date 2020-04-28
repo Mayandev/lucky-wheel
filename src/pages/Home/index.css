@@ -17,3 +17,12 @@
   height: 980rpx;
   z-index: -10;
 }
+
+.prize-list-link {
+  position: absolute;
+  top: 89rpx;
+  right: 48rpx;
+  text-decoration: underline;
+  color: #FFFFFF;
+  font-size: 24rpx;
+}

@@ -1,9 +1,12 @@
-import { createElement, useState, useEffect } from 'rax';
+import { createElement, useState, useEffect, useContext } from 'rax';
 import View from 'rax-view';
 import Image from 'rax-image';
 
 import LuckyButton from './LuckyButton'
-import { getPrizeList } from '../../api/prizeList';
+import { getWheelPrizeList } from '../../api/wheelPrizeList';
+
+import { AppContext } from '../../common/context';
+
 import './index.css';
 
 
@@ -24,7 +27,6 @@ const config = {
   mode: 'ease-in-out'
 }
 const angleList:Array<number>= []
-
 const formatPrizeList = (list: any) => {
   // 奖品个数
   const num = list.length;
@@ -50,9 +52,10 @@ export default () => {
   const [prizeList, setPrizeList] = useState([]);
   const [isRotating, setIsRotating] = useState(false);
   const [rotateAngle, setRotateAngle] = useState(0);
+  const { setShowModal } = useContext(AppContext);
 
   useEffect(() => {
-    getPrizeList().then((res: any) => {
+    getWheelPrizeList().then((res: any) => {
       console.log(res);
       const list = formatPrizeList(res);
       setPrizeList(list);
@@ -84,8 +87,9 @@ export default () => {
     
     // 重新设置角度，启动动画
     setRotateAngle(angle);
-    // 重置按钮, duration 秒后可重新按动按钮
+    // 重置按钮, duration 秒后可重新按动按钮，并显示 Modal
     setTimeout(() => {
+      setShowModal(true);
       setIsRotating(false);
     }, config.duration);
   }
