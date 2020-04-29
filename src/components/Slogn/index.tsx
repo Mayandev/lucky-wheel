@@ -1,4 +1,5 @@
 import { createElement, useState, useEffect } from 'rax';
+import { usePageHide } from 'rax-app';
 import View from "rax-view";
 
 import './index.css';
@@ -14,16 +15,23 @@ const animationConfig = {
 export default () => {
 
   const [slogn, setSlogn] = useState({ name: '', url: '' });
+  let interval = null;
 
   useEffect(() => {
     getSlognList().then((list: any) => {
       setSlogn(list[0]);
-      setInterval(() => {
+      interval = setInterval(() => {
         const index = Math.floor((Math.random() * list.length));
         setSlogn(list[index])
       }, 2000)
     })
   }, []);
+
+  usePageHide(() => {
+    // 注销计时函数
+    clearInterval(interval);
+  })
+
 
 
   return (

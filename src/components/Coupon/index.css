@@ -1,0 +1,67 @@
+:root {
+  --coupon-bg-color: #fce9da;
+  --coupon-middle-border-color: #e0bfac;
+  --coupon-middle-circle-color: #fff;
+}
+
+
+.coupon-container {
+  width: 640rpx;
+  height: 140rpx;
+  border-radius: 30rpx;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.coupon-left {
+  width:480rpx;
+  height:140rpx;
+}
+
+.coupon-left::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right:0;
+  height:50%;
+  background:radial-gradient(circle at right top, var(--coupon-middle-circle-color) 10rpx, var(--coupon-bg-color) 0px, var(--coupon-bg-color) 0px)
+}
+
+.coupon-left::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right:0;
+  height:50%;
+  background:radial-gradient(circle at right bottom, var(--coupon-middle-circle-color) 10rpx, var(--coupon-bg-color) 0px, var(--coupon-bg-color) 0px)
+}
+
+
+.coupon-right {
+  width:160rpx;
+  height:140rpx;
+}
+
+
+.coupon-right::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right:0;
+  height:50%;
+  background:radial-gradient(circle at left top, var(--coupon-middle-circle-color) 10rpx, var(--coupon-bg-color) 0px, var(--coupon-bg-color) 0px)
+}
+
+.coupon-right::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right:0;
+  height:50%;
+  background:radial-gradient(circle at left bottom, var(--coupon-middle-circle-color) 10rpx, var(--coupon-bg-color) 0px, var(--coupon-bg-color) 0px)
+}

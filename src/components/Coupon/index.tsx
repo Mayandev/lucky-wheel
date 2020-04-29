@@ -6,8 +6,13 @@ import './index.css';
 
 export default () => {
   return (
-    <View className="prize-item-container">
-      
+    <View className="coupon-container">
+      <View className="coupon-left">
+
+      </View>
+      <View className="coupon-right">
+
+      </View>
     </View>
   );
 }
