@@ -34,7 +34,7 @@ export default function Home(props: { history: any; }) {
   return (
     <AppContext.Provider value={{setShowModal}}>
       <View className="home">
-        <View className="prize-list-link" onClick={() => history.push('/prizeList')}>奖品</View>
+        <View className="prize-list-link" onClick={() => history.push('/prize')}>奖品</View>
         <Image className="lucky-title" resizeMode="cover" source={titleBg} />
         <View className="lucky-main">
           <Slogn></Slogn>

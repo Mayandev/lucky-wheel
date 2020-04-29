@@ -5,8 +5,8 @@
       "source": "pages/Home/index"
     },
     {
-      "path": "/prizeList",
-      "source": "pages/PrizeList/index"
+      "path": "/prize",
+      "source": "pages/Prize/index"
     }
   ],
   "window": {

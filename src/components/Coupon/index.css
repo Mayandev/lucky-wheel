@@ -4,7 +4,6 @@
   --coupon-middle-circle-color: #fff;
 }
 
-
 .coupon-container {
   width: 640rpx;
   height: 140rpx;
@@ -17,6 +16,12 @@
 .coupon-left {
   width:480rpx;
   height:140rpx;
+}
+
+.coupon-dash {
+  height: 120rpx;
+  margin-top: 10rpx;
+  border-left: 1px dashed var(--coupon-middle-border-color);
 }
 
 .coupon-left::before {
@@ -38,7 +43,6 @@
   height:50%;
   background:radial-gradient(circle at right bottom, var(--coupon-middle-circle-color) 10rpx, var(--coupon-bg-color) 0px, var(--coupon-bg-color) 0px)
 }
-
 
 .coupon-right {
   width:160rpx;
