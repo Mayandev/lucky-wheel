@@ -17,9 +17,6 @@ const titleBg = {
 const bottomBg = {
   uri: '/public/img/draw_bg_bottom.png'
 }
-
-
-
 export default function Home(props: { history: any; }) {
   // const context = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
