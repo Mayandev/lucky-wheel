@@ -5,15 +5,7 @@ import Image from 'rax-image';
 import { AppContext } from '../../common/context';
 
 import './index.css';
-
-interface ModalProps {
-  title: string,
-  desc: string,
-  image: string,
-  closeTxt: string,
-  isLucky: boolean
-}
-
+import { ModalProps } from '../../common/type'
 const modalPrizeBg = '/public/img/draw_money_fly.png';
 const cacelBtnImg = '/public/img/draw_modal_cancel.png';
 

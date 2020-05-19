@@ -5,8 +5,7 @@
       {
         "targets": ["web", "weex"]
       }
-    ],
-    "./plugins/scopedCSSPlugin"
+    ]
   ],
   "inlineStyle": false
 }

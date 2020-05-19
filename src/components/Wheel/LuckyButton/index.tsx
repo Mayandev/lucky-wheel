@@ -2,25 +2,8 @@ import { createElement } from 'rax';
 import View from 'rax-view';
 
 import './index.css';
+import { ButtonCondition, ButtonProps } from '../../../common/type'
 
-
-interface ClickFunc {
-  (): void
-}
-
-// 抽奖按钮样式
-interface ButtonCondition {
-  min: number,
-  max: number,
-  name: string,
-  style: string,
-  disabled: boolean
-}
-
-
-interface ButtonProps {
-  onClick: ClickFunc
-}
 
 const btnCondition: Array<ButtonCondition> = 
     [{min: 0,max: 8,name: '未开始',style: 'unbegin',disabled: true},

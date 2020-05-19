@@ -4,10 +4,16 @@ import Image from 'rax-image';
 
 import LuckyButton from './LuckyButton'
 import { getWheelPrizeList } from '../../api/wheelPrizeList';
+import { getUsers } from '../../api/mock';
 
+import { WheelPrize } from '../../common/type';
 import { AppContext } from '../../common/context';
+import { getPrizeModalProps } from '../../common/util';
+import { noPrizeModalProps } from '../../common/constant';
+
 
 import './index.css';
+
 
 
 const pointer = {
@@ -26,8 +32,8 @@ const config = {
   // 旋转效果
   mode: 'ease-in-out'
 }
-const angleList:Array<number>= []
-const formatPrizeList = (list: any) => {
+const angleList:Array<number>= [];
+const formatPrizeList = (list: Array<WheelPrize>) => {
   // 奖品个数
   const num = list.length;
   // 每个奖品夹角
@@ -35,7 +41,7 @@ const formatPrizeList = (list: any) => {
   // 奖品放在中间位置
   const half = average / 2;
   // 循环计算出每个奖品的位置
-  list.map((item, i: number) => {
+  list.map((item: WheelPrize, i: number) => {
     // 每个奖项旋转的位置为 当前 i * 平均值 + 平均值 / 2
     const angle = -((i * average));
     // 增加 style
@@ -48,14 +54,16 @@ const formatPrizeList = (list: any) => {
 }
 
 export default () => {
-
   const [prizeList, setPrizeList] = useState([]);
   const [isRotating, setIsRotating] = useState(false);
   const [rotateAngle, setRotateAngle] = useState(0);
-  const { setShowModal } = useContext(AppContext);
+  const { setShowModal, setModalProps } = useContext(AppContext);
 
   useEffect(() => {
-    getWheelPrizeList().then((res: any) => {
+    getUsers().then((res) => {
+      console.log(res);
+    })
+    getWheelPrizeList().then((res: Array<WheelPrize>) => {
       console.log(res);
       const list = formatPrizeList(res);
       setPrizeList(list);
@@ -70,10 +78,20 @@ export default () => {
   // 开始转动转盘
   const rotateWheel = () => {
     const index = random(prizeList.length - 1);
+    // 中奖奖项
+    const prizeItem : WheelPrize = prizeList[index];
+
     // 开始转动
     // 如果已经在转动，则停止
     if (isRotating) return;
     setIsRotating(true);
+
+    // 如果中奖，将 modal 设为中奖modal，否则设为未中奖 modal
+    if (prizeItem.isPrize) {
+      setModalProps(getPrizeModalProps(prizeItem.name));
+    } else {
+      setModalProps(noPrizeModalProps);
+    }
 
     // 旋转角度
     const angle = 

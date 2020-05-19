@@ -1,8 +1,16 @@
-import {createElement, useState, useEffect} from 'rax';
+import { createElement, useState, useEffect } from 'rax';
 
 import { getPrizeList } from '../../api/prizeList'
 import View from 'rax-view';
+import ScrollView from 'rax-scrollview';
+
+import { CouponProps } from '../../common/type';
+
 import Coupon from '../Coupon';
+
+import './index.css';
+
+
 export default () => {
 
   const [prizeList, setPrizeList] = useState([]);
@@ -13,13 +21,30 @@ export default () => {
     })
   }, [])
 
+  const onListEndReached = () => {
+    console.log('almost reach bottom');
+  }
+
   return (
     <View className="couponList">
-      {prizeList.map(item => {
-        return (
-          <Coupon></Coupon>
-        );
-      })}
+      <ScrollView
+      style={{
+        height: '100%',
+      }}
+        onEndReached={() => {onListEndReached()}} >
+        {prizeList.map((item) => {
+          return (
+            <Coupon
+              key={item.id}
+              image={item.image}
+              couponAmount={item.couponAmount}
+              couponLimit={item.couponLimit}
+              couponExpireTime={item.couponExpireTime}
+              couponStarTime={item.couponStarTime}
+              couponType={item.couponType} />
+          );
+        })}
+      </ScrollView>
     </View>
   );
 

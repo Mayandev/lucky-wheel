@@ -13,7 +13,6 @@ const animationConfig = {
 }
 
 export default () => {
-
   const [slogn, setSlogn] = useState({ name: '', url: '' });
   let interval = null;
 

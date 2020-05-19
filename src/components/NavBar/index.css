@@ -1,0 +1,19 @@
+.navbar {
+  height: 100rpx;
+  align-items: center;
+  justify-content: center;
+  color: #232323;
+}
+
+
+.navbar-back {
+  position: absolute;
+  left: 30rpx;
+  top: 50rpx;
+  width: 48rpx;
+  height: 48rpx;
+  transform: translateY(-24rpx);
+}
+.navbar-title {
+  font-size: 40rpx;
+}

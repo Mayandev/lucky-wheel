@@ -7,13 +7,16 @@
     "lint": "eslint --ext .js --ext .jsx ./"
   },
   "dependencies": {
+    "mockjs": "^1.1.0",
     "rax": "^1.1.0",
     "rax-app": "^2.0.0",
     "rax-document": "^0.1.0",
     "rax-image": "^2.0.0",
     "rax-link": "^1.0.1",
+    "rax-scrollview": "^3.2.0",
     "rax-text": "^1.0.0",
-    "rax-view": "^1.0.0"
+    "rax-view": "^1.0.0",
+    "universal-navigate": "^1.2.0"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.0",
@@ -26,6 +29,7 @@
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-react": "^7.18.0",
     "node-sass": "^4.14.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
     "scoped-css-loader": "^1.0.0",
     "style-loader": "^1.2.1",
