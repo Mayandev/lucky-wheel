@@ -24,11 +24,11 @@ a:hover {
 }
 
 
-body {
+html, body {
   margin: 0 auto;
   width: 750rpx;
   background: #fff;
-  height: 100vh;
+  height: 1334rpx;
 }
 
 

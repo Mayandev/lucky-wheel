@@ -15,6 +15,7 @@ function Document() {
         <Root />
         <Script />
       </body>
+      <script src="http://g.alicdn.com/kg/appear/0.2.0/appear.min.js"></script>
     </html>
   );
 }

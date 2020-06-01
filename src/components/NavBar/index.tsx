@@ -11,7 +11,7 @@ export default (props: NavBarProps) => {
 
   return (
     <View className="navbar">
-      <Image onClick={()=>{(onIconClick())}} className="navbar-back" source={{uri: icon}}></Image>
+      <Image onClick={()=>{(onIconClick())}} className="navbar-back" resizeMode={"contain"} source={{uri: icon}}></Image>
       <View className="navbar-title">{title}</View>
     </View>
   );

@@ -41,7 +41,8 @@ export default () => {
               couponLimit={item.couponLimit}
               couponExpireTime={item.couponExpireTime}
               couponStarTime={item.couponStarTime}
-              couponType={item.couponType} />
+              couponType={item.couponType}
+              useLink={'https://detail.m.tmall.com/item.htm?id=615280750325&toSite=main'} />
           );
         })}
       </ScrollView>

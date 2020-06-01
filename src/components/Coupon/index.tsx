@@ -1,6 +1,7 @@
 import { createElement } from 'rax';
 import View from 'rax-view';
-import Image from 'rax-image';
+import Picture from 'rax-picture';
+import Navigate from 'universal-navigate';
 
 import { CouponProps } from '../../common/type';
 
@@ -14,12 +15,13 @@ export default (props: CouponProps) => {
     couponLimit,
     couponType,
     couponStarTime,
-    couponExpireTime } = props;
+    couponExpireTime,
+    useLink } = props;
   return (
     <View className="coupon-container">
       <View className="coupon-left">
         <View className="coupon-img-container">
-          <Image className="coupon-img" source={{ uri: image }} resizeMode="cover"></Image>
+          <Picture lazyload={true} className="coupon-img" source={{ uri: image }} resizeMode="cover"></Picture>
         </View>
         <View className="coupon-desc-container">
           <View className="coupon-title">
@@ -35,7 +37,7 @@ export default (props: CouponProps) => {
       </View>
       <View className="coupon-dash"></View>
       <View className="coupon-right">
-        <View className="coupon-operate">
+        <View onClick={() => {Navigate.push({url: useLink})}}  className="coupon-operate">
           去使用
         </View>
       </View>

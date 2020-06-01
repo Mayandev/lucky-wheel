@@ -4,7 +4,6 @@ import Image from 'rax-image';
 
 import LuckyButton from './LuckyButton'
 import { getWheelPrizeList } from '../../api/wheelPrizeList';
-import { getUsers } from '../../api/mock';
 
 import { WheelPrize } from '../../common/type';
 import { AppContext } from '../../common/context';
@@ -60,9 +59,6 @@ export default () => {
   const { setShowModal, setModalProps } = useContext(AppContext);
 
   useEffect(() => {
-    getUsers().then((res) => {
-      console.log(res);
-    })
     getWheelPrizeList().then((res: Array<WheelPrize>) => {
       console.log(res);
       const list = formatPrizeList(res);

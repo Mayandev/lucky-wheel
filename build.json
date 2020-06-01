@@ -3,7 +3,7 @@
     [
       "build-plugin-rax-app",
       {
-        "targets": ["web", "weex"]
+        "targets": ["web"]
       }
     ]
   ],

@@ -15,6 +15,8 @@ export interface CouponProps {
   couponStarTime: string,
   // 失效时间
   couponExpireTime: string
+  // 去使用跳转了解
+  useLink: string
 }
 
 /**
