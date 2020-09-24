@@ -2,7 +2,7 @@
 
 ## Intro
 
-一个转盘抽奖 Demo，Rax 构建，TypeScript 编写。点击链接打开 [Demo 页面](https://mayandev.top/lucky-wheel)。
+一个转盘抽奖 Demo，Rax 构建，TypeScript 编写。
 
 ![](https://mayandev.oss-cn-hangzhou.aliyuncs.com/other/20200820125201.jpg)
 
